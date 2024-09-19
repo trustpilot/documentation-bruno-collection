@@ -1,0 +1,19 @@
+meta {
+  name: Get private product reviews
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{stagingurl}}/private/product-reviews/business-units/{{bundingoBusinessUnitId}}/reviews
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+vars:pre-request {
+  : 
+}

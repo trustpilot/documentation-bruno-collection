@@ -1,0 +1,15 @@
+meta {
+  name: Get private review
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{stagingurl}}/private/reviews/66eb60b1a2a8ea71e42eda5b
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

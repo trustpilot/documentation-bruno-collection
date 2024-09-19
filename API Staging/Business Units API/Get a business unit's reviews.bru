@@ -1,0 +1,15 @@
+meta {
+  name: Get a business unit's reviews
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{stagingurl}}/business-units/{{bundingoBusinessUnitId}}/reviews
+  body: none
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}

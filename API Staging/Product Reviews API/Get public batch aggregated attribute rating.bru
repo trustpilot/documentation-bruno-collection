@@ -1,0 +1,29 @@
+meta {
+  name: Get public batch aggregated attribute rating
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{stagingurl}}/product-reviews/business-units/{{bundingoBusinessUnitId}}/attribute-summaries
+  body: json
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}
+
+body:json {
+  {
+    "skus": [
+      "ABCD-1234",
+      "180883_VMAT"
+    ],
+    "locale": "en-GB"
+  }
+}
+
+vars:pre-request {
+  : 
+}

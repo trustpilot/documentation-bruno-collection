@@ -1,0 +1,19 @@
+meta {
+  name: Get category
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{stagingurl}}/categories/pet_store?country=FR
+  body: none
+  auth: none
+}
+
+params:query {
+  country: FR
+}
+
+headers {
+  apikey: {{apikey}}
+}

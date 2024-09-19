@@ -1,0 +1,23 @@
+meta {
+  name: Get imported product reviews
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{stagingurl}}/product-reviews/business-units/{{bundingoBusinessUnitId}}/imported-reviews?sku=180883_VMAT
+  body: none
+  auth: none
+}
+
+params:query {
+  sku: 180883_VMAT
+}
+
+headers {
+  apikey: {{apikey}}
+}
+
+vars:pre-request {
+  : 
+}

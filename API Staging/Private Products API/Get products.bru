@@ -1,0 +1,20 @@
+meta {
+  name: Get products
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{stagingurl}}/private/business-units/{{bundingoBusinessUnitId}}/products?page=0&perPage=10
+  body: none
+  auth: bearer
+}
+
+params:query {
+  page: 0
+  perPage: 10
+}
+
+auth:bearer {
+  token: {{token}}
+}

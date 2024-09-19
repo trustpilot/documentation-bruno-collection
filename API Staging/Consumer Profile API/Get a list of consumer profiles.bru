@@ -1,0 +1,23 @@
+meta {
+  name: Get a list of consumer profiles
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{stagingurl}}/consumers/profile/bulk
+  body: json
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}
+
+body:json {
+  {
+    "consumerIds": [
+      "5c0f7e10e137f3648a8269f6"
+    ]
+  }
+}

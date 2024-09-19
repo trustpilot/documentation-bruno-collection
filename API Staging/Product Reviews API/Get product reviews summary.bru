@@ -1,0 +1,23 @@
+meta {
+  name: Get product reviews summary
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{stagingurl}}/product-reviews/business-units/{{bundingoBusinessUnitId}}?Sku=sku20230915-2
+  body: none
+  auth: none
+}
+
+params:query {
+  Sku: sku20230915-2
+}
+
+headers {
+  apikey: {{apikey}}
+}
+
+vars:pre-request {
+  : 
+}

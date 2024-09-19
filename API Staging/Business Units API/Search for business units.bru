@@ -1,0 +1,20 @@
+meta {
+  name: Search for business units
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{stagingurl}}/business-units/search?query=agence&country=fr
+  body: none
+  auth: none
+}
+
+params:query {
+  query: agence
+  country: fr
+}
+
+headers {
+  apikey: {{apikey}}
+}

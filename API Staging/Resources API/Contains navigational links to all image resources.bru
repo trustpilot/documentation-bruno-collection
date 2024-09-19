@@ -1,0 +1,19 @@
+meta {
+  name: Contains navigational links to all image resources
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{stagingurl}}/resources/images
+  body: none
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}
+
+vars:pre-request {
+  : 
+}

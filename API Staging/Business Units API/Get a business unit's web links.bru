@@ -1,0 +1,19 @@
+meta {
+  name: Get a business unit's web links
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{stagingurl}}/business-units/{{bundingoBusinessUnitId}}/web-links?locale=da-DK
+  body: none
+  auth: basic
+}
+
+params:query {
+  locale: da-DK
+}
+
+headers {
+  apikey: {{apikey}}
+}

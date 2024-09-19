@@ -1,0 +1,27 @@
+meta {
+  name: Get batch product reviews summaries
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{stagingurl}}/product-reviews/business-units/{{bundingoBusinessUnitId}}/batch-summaries
+  body: json
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}
+
+body:json {
+  {
+    "skus": [
+      "skutest123"
+    ]
+  }
+}
+
+vars:pre-request {
+  : 
+}

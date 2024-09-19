@@ -1,0 +1,15 @@
+meta {
+  name: List categories for business unit
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{stagingurl}}/business-units/{{bundingoBusinessUnitId}}/categories
+  body: none
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}

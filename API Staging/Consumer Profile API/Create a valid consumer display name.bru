@@ -1,0 +1,21 @@
+meta {
+  name: Create a valid consumer display name
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{stagingurl}}/consumers/profile/displayname/create
+  body: json
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}
+
+body:json {
+  {
+    "displayName": "Cool Name"
+  }
+}

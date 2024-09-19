@@ -1,0 +1,19 @@
+meta {
+  name: Get list of tags for a review
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{stagingurl}}/private/reviews/66eb60b1a2a8ea71e42eda5b/tags?ff
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ff: 
+}
+
+auth:bearer {
+  token: {{token}}
+}

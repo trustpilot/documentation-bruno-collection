@@ -1,0 +1,19 @@
+meta {
+  name: Get a review
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{stagingurl}}/reviews/66eb60b1a2a8ea71e42eda5b
+  body: none
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}
+
+vars:pre-request {
+  : 
+}

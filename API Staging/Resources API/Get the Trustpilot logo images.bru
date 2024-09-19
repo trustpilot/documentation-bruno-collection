@@ -1,0 +1,19 @@
+meta {
+  name: Get the Trustpilot logo images
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{stagingurl}}/resources/images/logos
+  body: none
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}
+
+vars:pre-request {
+  : 
+}

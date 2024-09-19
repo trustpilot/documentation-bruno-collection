@@ -1,0 +1,15 @@
+meta {
+  name: Get images of business unit
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{stagingurl}}/business-units/{{bundingoBusinessUnitId}}/images
+  body: none
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}

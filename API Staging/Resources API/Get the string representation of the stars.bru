@@ -1,0 +1,19 @@
+meta {
+  name: Get the string representation of the stars
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{stagingurl}}/resources/strings/stars/5
+  body: none
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}
+
+vars:pre-request {
+  : 
+}

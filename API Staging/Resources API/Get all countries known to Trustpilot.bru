@@ -1,0 +1,19 @@
+meta {
+  name: Get all countries known to Trustpilot
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{stagingurl}}/resources/metadata/countries
+  body: none
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}
+
+vars:pre-request {
+  : 
+}

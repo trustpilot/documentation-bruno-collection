@@ -1,0 +1,20 @@
+meta {
+  name: Remove a tag from a review
+  type: http
+  seq: 10
+}
+
+delete {
+  url: {{stagingurl}}/private/reviews/66eb60b1a2a8ea71e42eda5b/tags?group=ProductGroup&value=ComputersTest
+  body: json
+  auth: bearer
+}
+
+params:query {
+  group: ProductGroup
+  value: ComputersTest
+}
+
+auth:bearer {
+  token: {{token}}
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Get Access Token
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{stagingurl}}/oauth/oauth-business-users-for-applications/accesstoken
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{apikey}}
+  password: {{apisecret}}
+}
+
+body:form-urlencoded {
+  grant_type: password
+  username: {{username}}
+  password: {{password}}
+}

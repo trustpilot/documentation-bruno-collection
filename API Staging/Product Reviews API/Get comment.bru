@@ -1,0 +1,19 @@
+meta {
+  name: Get comment
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{stagingurl}}/private/conversations/66eae87a773b9af2677b9142/comments/66eae908773b9af2677b9143
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+vars:pre-request {
+  : 
+}

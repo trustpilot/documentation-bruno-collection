@@ -1,0 +1,23 @@
+meta {
+  name: Delete invitation data (private)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{stagingurlInvitation}}/private/business-units/{{bundingoBusinessUnitId}}/invitation-data/delete
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "customerEmails": [
+      "seb@trustpilot.com"
+    ]
+  }
+}

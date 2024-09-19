@@ -1,0 +1,23 @@
+meta {
+  name: Get latest reviews by language
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{stagingurl}}/reviews/latest?language=en
+  body: none
+  auth: none
+}
+
+params:query {
+  language: en
+}
+
+headers {
+  apikey: {{apikey}}
+}
+
+vars:pre-request {
+  : 
+}

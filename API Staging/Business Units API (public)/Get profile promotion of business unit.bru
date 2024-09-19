@@ -1,0 +1,15 @@
+meta {
+  name: Get profile promotion of business unit
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{stagingurl}}/business-units/{{bundingoBusinessUnitId}}/profilepromotion
+  body: none
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}

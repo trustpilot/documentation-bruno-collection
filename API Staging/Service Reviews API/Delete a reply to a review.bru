@@ -1,0 +1,23 @@
+meta {
+  name: Delete a reply to a review
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{stagingurl}}/private/reviews/66eb60b1a2a8ea71e42eda5b/reply
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "message": null,
+    "skipNotificationEmailToBusinessUser": false
+  }
+  
+}

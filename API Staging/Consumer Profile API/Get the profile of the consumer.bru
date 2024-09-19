@@ -1,0 +1,15 @@
+meta {
+  name: Get the profile of the consumer
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{stagingurl}}/consumers/5c0f7e10e137f3648a8269f6/profile
+  body: none
+  auth: none
+}
+
+headers {
+  apikey: {{apikey}}
+}

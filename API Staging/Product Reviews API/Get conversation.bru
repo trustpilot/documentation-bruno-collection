@@ -1,0 +1,19 @@
+meta {
+  name: Get conversation
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{stagingurl}}/private/conversations/66eae87a773b9af2677b9142
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+vars:pre-request {
+  : 
+}

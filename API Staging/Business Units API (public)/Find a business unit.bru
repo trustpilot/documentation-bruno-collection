@@ -1,0 +1,19 @@
+meta {
+  name: Find a business unit
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{stagingurl}}/business-units/find?name=bundingo.com
+  body: none
+  auth: none
+}
+
+params:query {
+  name: bundingo.com
+}
+
+headers {
+  apikey: {{apikey}}
+}

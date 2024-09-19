@@ -1,0 +1,20 @@
+meta {
+  name: Revoke token
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{stagingurl}}/oauth/oauth-business-users-for-applications/revoke
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{apikey}}
+  password: {{apisecret}}
+}
+
+body:form-urlencoded {
+  token: w7A4aXTqBXdoIfQaL2x8wVgeUxX8
+}

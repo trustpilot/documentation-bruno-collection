@@ -1,0 +1,26 @@
+meta {
+  name: Add tags to a review
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{stagingurl}}/private/reviews/66eb60b1a2a8ea71e42eda5b/tags
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "tags": [
+      {
+        "group": "ProductGroup",
+        "value": "ComputersTest"
+      }
+    ]
+  }
+}
