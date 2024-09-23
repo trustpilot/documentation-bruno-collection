@@ -5,14 +5,14 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/private/business-units/{{bundingoBusinessUnitId}}/products?page=0&perPage=10
+  url: {{stagingurl}}/private/business-units/{{bundingoBusinessUnitId}}/products?page=10
   body: none
   auth: bearer
 }
 
 params:query {
-  page: 0
-  perPage: 10
+  page: 10
+  ~perPage: 10
 }
 
 auth:bearer {
