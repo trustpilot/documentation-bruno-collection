@@ -5,9 +5,34 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/private/business-units/{{bundingoBusinessUnitId}}/reviews
+  url: {{baseUrl}}/private/business-units/:businessUnitId/reviews
   body: none
   auth: bearer
+}
+
+params:query {
+  ~orderBy: 
+  ~internalLocationId: 
+  ~page: 
+  ~language: 
+  ~stars: 
+  ~perPage: 
+  ~tagGroup: 
+  ~tagValue: 
+  ~ignoreTagValueCase: 
+  ~responded: 
+  ~referenceId: 
+  ~referralEmail: 
+  ~reported: 
+  ~startDateTime: 
+  ~endDateTime: 
+  ~source: 
+  ~username: 
+  ~findReviewer: 
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
 }
 
 auth:bearer {

@@ -5,11 +5,30 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/business-units/{{bundingoBusinessUnitId}}/reviews
+  url: {{baseUrl}}/business-units/:businessUnitId/reviews
   body: none
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+params:query {
+  ~stars: 
+  ~language: 
+  ~internalLocationId: 
+  ~page: 
+  ~perPage: 
+  ~orderBy: 
+  ~tagGroup: 
+  ~tagValue: 
+  ~responded: 
+  ~includeReportedReviews: 
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

@@ -1,17 +1,19 @@
 meta {
   name: Validate consumer display name
   type: http
-  seq: 5
+  seq: 6
 }
 
 post {
-  url: {{stagingurl}}/consumers/profile/displayname/validate
+  url: {{baseUrl}}/consumers/profile/displayname/validate
   body: json
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }
 
 body:json {

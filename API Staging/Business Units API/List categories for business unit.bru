@@ -5,11 +5,22 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/business-units/{{bundingoBusinessUnitId}}/categories
+  url: {{baseUrl}}/business-units/:businessUnitId/categories
   body: none
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+params:query {
+  ~country: 
+  ~locale: 
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

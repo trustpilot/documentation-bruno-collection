@@ -1,17 +1,13 @@
 meta {
-  name: Get a business unit's reviews (paginate)
+  name: Get company promotion box of business unit
   type: http
-  seq: 3
+  seq: 5
 }
 
 get {
-  url: {{baseUrl}}/business-units/:businessUnitId/all-reviews
+  url: {{baseUrl}}/business-units/:businessUnitId/promotion-box
   body: none
   auth: apikey
-}
-
-params:query {
-  ~pageToken: 
 }
 
 params:path {

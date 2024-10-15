@@ -5,11 +5,19 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/business-units/all
+  url: {{baseUrl}}/business-units/all
   body: none
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+params:query {
+  ~country: 
+  ~perPage: 
+  ~cursor: 
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

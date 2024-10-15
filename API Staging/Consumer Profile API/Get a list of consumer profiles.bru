@@ -1,17 +1,19 @@
 meta {
   name: Get a list of consumer profiles
   type: http
-  seq: 3
+  seq: 2
 }
 
 post {
-  url: {{stagingurl}}/consumers/profile/bulk
+  url: {{baseUrl}}/consumers/profile/bulk
   body: json
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }
 
 body:json {

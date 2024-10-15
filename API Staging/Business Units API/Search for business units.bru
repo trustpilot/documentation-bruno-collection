@@ -5,16 +5,20 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/business-units/search?query=agence&country=fr
+  url: {{baseUrl}}/business-units/search?query=ventures
   body: none
-  auth: none
+  auth: apikey
 }
 
 params:query {
-  query: agence
-  country: fr
+  query: ventures
+  ~country: 
+  ~page: 
+  ~perpage: 
 }
 
-headers {
-  apikey: {{apikey}}
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

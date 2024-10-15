@@ -1,15 +1,21 @@
 meta {
   name: Get public business unit
   type: http
-  seq: 5
+  seq: 6
 }
 
 get {
-  url: {{stagingurl}}/business-units/{{bundingoBusinessUnitId}}
+  url: {{baseUrl}}/business-units/:businessUnitId
   body: none
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

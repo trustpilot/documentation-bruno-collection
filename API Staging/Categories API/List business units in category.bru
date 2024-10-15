@@ -5,15 +5,24 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/categories/pet_store/business-units?country=FR
+  url: {{baseUrl}}/categories/:categoryId/business-units?country=FR
   body: none
-  auth: none
+  auth: apikey
 }
 
 params:query {
   country: FR
+  ~locale: 
+  ~page: 
+  ~perPage: 
 }
 
-headers {
-  apikey: {{apikey}}
+params:path {
+  categoryId: building_materials_supplier
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

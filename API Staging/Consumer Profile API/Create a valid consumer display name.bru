@@ -5,13 +5,15 @@ meta {
 }
 
 post {
-  url: {{stagingurl}}/consumers/profile/displayname/create
+  url: {{baseUrl}}/consumers/profile/displayname/create
   body: json
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }
 
 body:json {

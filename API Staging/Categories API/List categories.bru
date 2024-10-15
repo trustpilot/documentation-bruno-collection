@@ -5,11 +5,19 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/categories
+  url: {{baseUrl}}/categories
   body: none
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+params:query {
+  ~country: 
+  ~locale: 
+  ~parentId: 
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

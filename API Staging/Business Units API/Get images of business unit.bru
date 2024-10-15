@@ -5,11 +5,17 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/business-units/{{bundingoBusinessUnitId}}/images
+  url: {{baseUrl}}/business-units/:businessUnitId/images
   body: none
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

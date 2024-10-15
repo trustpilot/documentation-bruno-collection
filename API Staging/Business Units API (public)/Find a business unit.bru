@@ -5,15 +5,17 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/business-units/find?name=bundingo.com
+  url: {{baseUrl}}/business-units/find?name=bundingo.com
   body: none
-  auth: none
+  auth: apikey
 }
 
 params:query {
   name: bundingo.com
 }
 
-headers {
-  apikey: {{apikey}}
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

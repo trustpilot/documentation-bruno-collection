@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "API Staging",
+  "name": "developers.trustpilot.com",
   "type": "collection",
   "ignore": [
     "node_modules",

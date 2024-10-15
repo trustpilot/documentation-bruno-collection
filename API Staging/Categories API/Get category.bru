@@ -5,15 +5,22 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/categories/pet_store?country=FR
+  url: {{baseUrl}}/categories/:categoryId?country=FR
   body: none
-  auth: none
+  auth: apikey
 }
 
 params:query {
   country: FR
+  ~locale: 
 }
 
-headers {
-  apikey: {{apikey}}
+params:path {
+  categoryId: pet_store
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }
