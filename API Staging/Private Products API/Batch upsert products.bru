@@ -1,13 +1,17 @@
 meta {
   name: Batch upsert products
   type: http
-  seq: 2
+  seq: 1
 }
 
 post {
-  url: {{stagingurl}}/private/business-units/{{bundingoBusinessUnitId}}/products
+  url: {{baseUrl}}/private/business-units/:businessUnitId/products
   body: json
   auth: bearer
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
 }
 
 auth:bearer {

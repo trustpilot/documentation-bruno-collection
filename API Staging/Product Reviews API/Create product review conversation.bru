@@ -5,9 +5,13 @@ meta {
 }
 
 post {
-  url: {{stagingurl}}/private/product-reviews/66bb7d52ef6229b0498ec195/create-conversation
+  url: {{baseUrl}}/private/product-reviews/:reviewId/create-conversation
   body: json
   auth: bearer
+}
+
+params:path {
+  reviewId: 66bb7d52ef6229b0498ec195
 }
 
 auth:bearer {

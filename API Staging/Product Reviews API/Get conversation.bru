@@ -5,15 +5,15 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/private/conversations/66eae87a773b9af2677b9142
+  url: {{baseUrl}}/private/conversations/:conversationId
   body: none
   auth: bearer
 }
 
-auth:bearer {
-  token: {{token}}
+params:path {
+  conversationId: 66eae87a773b9af2677b9142
 }
 
-vars:pre-request {
-  : 
+auth:bearer {
+  token: {{token}}
 }

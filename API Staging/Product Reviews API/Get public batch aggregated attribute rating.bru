@@ -5,13 +5,19 @@ meta {
 }
 
 post {
-  url: {{stagingurl}}/product-reviews/business-units/{{bundingoBusinessUnitId}}/attribute-summaries
+  url: {{baseUrl}}/product-reviews/business-units/:businessUnitId/attribute-summaries
   body: json
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }
 
 body:json {
@@ -22,8 +28,4 @@ body:json {
     ],
     "locale": "en-GB"
   }
-}
-
-vars:pre-request {
-  : 
 }

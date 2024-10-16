@@ -5,9 +5,13 @@ meta {
 }
 
 post {
-  url: {{stagingurl}}/private/product-reviews/business-units/{{bundingoBusinessUnitId}}/invitation-links
+  url: {{baseUrl}}/private/product-reviews/business-units/:businessUnitId/invitation-links
   body: json
   auth: bearer
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
 }
 
 auth:bearer {

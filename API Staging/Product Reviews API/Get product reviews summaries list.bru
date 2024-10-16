@@ -5,15 +5,20 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/private/product-reviews/business-units/{{bundingoBusinessUnitId}}/summaries
+  url: {{baseUrl}}/private/product-reviews/business-units/:businessUnitId/summaries
   body: none
   auth: bearer
 }
 
-auth:bearer {
-  token: {{token}}
+params:query {
+  ~page: 
+  ~perPage: 
 }
 
-vars:pre-request {
-  : 
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:bearer {
+  token: {{token}}
 }

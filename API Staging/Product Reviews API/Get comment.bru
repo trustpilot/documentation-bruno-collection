@@ -5,15 +5,16 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/private/conversations/66eae87a773b9af2677b9142/comments/66eae908773b9af2677b9143
+  url: {{baseUrl}}/private/conversations/:conversationId/comments/:commentId
   body: none
   auth: bearer
 }
 
-auth:bearer {
-  token: {{token}}
+params:path {
+  commentId: 66eae908773b9af2677b9143
+  conversationId: 507f191e810c19729de860ea
 }
 
-vars:pre-request {
-  : 
+auth:bearer {
+  token: {{token}}
 }

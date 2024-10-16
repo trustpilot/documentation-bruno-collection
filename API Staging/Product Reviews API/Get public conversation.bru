@@ -5,15 +5,17 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/conversations/66eae87a773b9af2677b9142
+  url: {{baseUrl}}/conversations/:conversationId
   body: none
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+params:path {
+  conversationId: 66eae87a773b9af2677b9142
 }
 
-vars:pre-request {
-  : 
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

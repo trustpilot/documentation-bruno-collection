@@ -5,15 +5,19 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/private/product-reviews/66bb7d52ef6229b0498ec195
+  url: {{baseUrl}}/private/product-reviews/:reviewId
   body: none
   auth: bearer
 }
 
-auth:bearer {
-  token: {{token}}
+params:query {
+  ~locale: 
 }
 
-vars:pre-request {
-  : 
+params:path {
+  reviewId: 66bb7d52ef6229b0498ec195
+}
+
+auth:bearer {
+  token: {{token}}
 }

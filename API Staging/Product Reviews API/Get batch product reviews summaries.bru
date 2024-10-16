@@ -5,13 +5,19 @@ meta {
 }
 
 post {
-  url: {{stagingurl}}/product-reviews/business-units/{{bundingoBusinessUnitId}}/batch-summaries
+  url: {{baseUrl}}/product-reviews/business-units/:businessUnitId/batch-summaries
   body: json
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }
 
 body:json {
@@ -20,8 +26,4 @@ body:json {
       "skutest123"
     ]
   }
-}
-
-vars:pre-request {
-  : 
 }

@@ -5,19 +5,28 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/product-reviews/business-units/{{bundingoBusinessUnitId}}?Sku=180883_VMAT
+  url: {{baseUrl}}/product-reviews/business-units/:businessUnitId
   body: none
-  auth: none
+  auth: apikey
 }
 
 params:query {
-  Sku: 180883_VMAT
+  ~sku: 
+  ~page: 
+  ~perPage: 
+  ~productUrl: 
+  ~language: 
+  ~stars: 
+  ~locale: 
+  ~attributeIds: 
 }
 
-headers {
-  apikey: {{apikey}}
+params:path {
+  businessUnitId: {{businessUnitId}}
 }
 
-vars:pre-request {
-  : 
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }
