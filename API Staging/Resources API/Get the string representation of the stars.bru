@@ -5,15 +5,15 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/resources/strings/stars/5
+  url: {{baseUrl}}/resources/strings/stars/:stars
   body: none
   auth: none
 }
 
-headers {
-  apikey: {{apikey}}
+params:query {
+  ~locale: 
 }
 
-vars:pre-request {
-  : 
+params:path {
+  stars: 5
 }

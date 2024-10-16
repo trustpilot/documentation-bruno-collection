@@ -5,15 +5,11 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/resources/metadata/countries
+  url: {{baseUrl}}/resources/metadata/countries
   body: none
   auth: none
 }
 
-headers {
-  apikey: {{apikey}}
-}
-
-vars:pre-request {
-  : 
+params:query {
+  ~locale: 
 }
