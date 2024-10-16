@@ -1,13 +1,17 @@
 meta {
   name: Generate service review invitation link (private)
   type: http
-  seq: 2
+  seq: 3
 }
 
 post {
-  url: {{stagingurlInvitation}}/private/business-units/{{bundingoBusinessUnitId}}/invitation-links
+  url: {{invitationsBaseUrl}}/private/business-units/:businessUnitId/invitation-links
   body: json
   auth: bearer
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
 }
 
 auth:bearer {

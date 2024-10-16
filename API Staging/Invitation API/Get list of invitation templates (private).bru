@@ -1,13 +1,17 @@
 meta {
   name: Get list of invitation templates (private)
   type: http
-  seq: 1
+  seq: 4
 }
 
 get {
-  url: {{stagingurlInvitation}}/private/business-units/{{bundingoBusinessUnitId}}/templates
+  url: {{invitationsBaseUrl}}/private/business-units/:businessUnitId/templates
   body: none
   auth: bearer
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
 }
 
 auth:bearer {

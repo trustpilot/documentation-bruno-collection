@@ -1,13 +1,21 @@
 meta {
   name: Delete invitation data (private)
   type: http
-  seq: 4
+  seq: 2
 }
 
 post {
-  url: {{stagingurlInvitation}}/private/business-units/{{bundingoBusinessUnitId}}/invitation-data/delete
+  url: {{invitationsBaseUrl}}/private/business-units/:businessUnitId/invitation-data/delete
   body: json
   auth: bearer
+}
+
+params:query {
+  ~x-business-user-id: 
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
 }
 
 auth:bearer {
