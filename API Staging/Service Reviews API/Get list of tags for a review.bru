@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/private/reviews/66eb60b1a2a8ea71e42eda5b/tags?ff
+  url: {{baseUrl}}/private/reviews/:reviewId/tags
   body: none
   auth: bearer
 }
 
-params:query {
-  ff: 
+params:path {
+  reviewId: 66eb60b1a2a8ea71e42eda5b
 }
 
 auth:bearer {

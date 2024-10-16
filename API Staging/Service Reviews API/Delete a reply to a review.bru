@@ -5,19 +5,15 @@ meta {
 }
 
 delete {
-  url: {{stagingurl}}/private/reviews/66eb60b1a2a8ea71e42eda5b/reply
-  body: json
+  url: {{baseUrl}}/private/reviews/:reviewId/reply
+  body: none
   auth: bearer
+}
+
+params:path {
+  reviewId: 66eb60b1a2a8ea71e42eda5b
 }
 
 auth:bearer {
   token: {{token}}
-}
-
-body:json {
-  {
-    "message": null,
-    "skipNotificationEmailToBusinessUser": false
-  }
-  
 }

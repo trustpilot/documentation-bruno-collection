@@ -5,15 +5,17 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/reviews/66eb60b1a2a8ea71e42eda5b
+  url: {{baseUrl}}/reviews/:reviewId
   body: none
-  auth: none
+  auth: apikey
 }
 
-headers {
-  apikey: {{apikey}}
+params:path {
+  reviewId: 66eb60b1a2a8ea71e42eda5b
 }
 
-vars:pre-request {
-  : 
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

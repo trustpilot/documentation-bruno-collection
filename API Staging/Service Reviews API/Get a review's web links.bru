@@ -5,19 +5,21 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/reviews/66eb60b1a2a8ea71e42eda5b/web-links?locale=en-GB
+  url: {{baseUrl}}/reviews/:reviewId/web-links?locale=en-GB
   body: none
-  auth: none
+  auth: apikey
 }
 
 params:query {
   locale: en-GB
 }
 
-headers {
-  apikey: {{apikey}}
+params:path {
+  reviewId: 66eb60b1a2a8ea71e42eda5b
 }
 
-vars:pre-request {
-  : 
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

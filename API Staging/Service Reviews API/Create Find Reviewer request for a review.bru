@@ -5,9 +5,13 @@ meta {
 }
 
 post {
-  url: {{stagingurl}}/private/reviews/66eb60b1a2a8ea71e42eda5b/find-reviewer
+  url: {{baseUrl}}/private/reviews/:reviewId/find-reviewer
   body: json
   auth: bearer
+}
+
+params:path {
+  reviewId: 66eb60b1a2a8ea71e42eda5b
 }
 
 auth:bearer {

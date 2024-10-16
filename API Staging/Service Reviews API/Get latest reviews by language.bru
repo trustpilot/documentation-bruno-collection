@@ -5,19 +5,20 @@ meta {
 }
 
 get {
-  url: {{stagingurl}}/reviews/latest?language=en
+  url: {{baseUrl}}/reviews/latest?language=en
   body: none
-  auth: none
+  auth: apikey
 }
 
 params:query {
   language: en
+  ~count: 
+  ~filterUsersWithoutImages: 
+  ~locale: 
 }
 
-headers {
-  apikey: {{apikey}}
-}
-
-vars:pre-request {
-  : 
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
 }

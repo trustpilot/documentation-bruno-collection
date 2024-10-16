@@ -5,14 +5,18 @@ meta {
 }
 
 delete {
-  url: {{stagingurl}}/private/reviews/66eb60b1a2a8ea71e42eda5b/tags?group=ProductGroup&value=ComputersTest
-  body: json
+  url: {{baseUrl}}/private/reviews/:reviewId/tags?group=ProductGroup&value=ComputersTest
+  body: none
   auth: bearer
 }
 
 params:query {
   group: ProductGroup
   value: ComputersTest
+}
+
+params:path {
+  reviewId: 66eb60b1a2a8ea71e42eda5b
 }
 
 auth:bearer {
