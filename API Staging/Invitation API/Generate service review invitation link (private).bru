@@ -1,0 +1,34 @@
+meta {
+  name: Generate service review invitation link (private)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{invitationsBaseUrl}}/private/business-units/:businessUnitId/invitation-links
+  body: json
+  auth: bearer
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "locationId": "ABC123",
+    "referenceId": "inv00001",
+    "email": "seb@trustpilot.com",
+    "name": "John Doe",
+    "locale": "en-US",
+    "tags": [
+      "tag1",
+      "test"
+    ],
+    "redirectUri": "https://trustpilot.com"
+  }
+}

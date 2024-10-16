@@ -1,0 +1,26 @@
+meta {
+  name: Get category
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/categories/:categoryId?country=FR
+  body: none
+  auth: apikey
+}
+
+params:query {
+  country: FR
+  ~locale: 
+}
+
+params:path {
+  categoryId: pet_store
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

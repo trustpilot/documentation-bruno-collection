@@ -1,0 +1,24 @@
+meta {
+  name: Search for business units
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/business-units/search?query=ventures
+  body: none
+  auth: apikey
+}
+
+params:query {
+  query: ventures
+  ~country: 
+  ~page: 
+  ~perpage: 
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

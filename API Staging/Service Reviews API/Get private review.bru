@@ -1,0 +1,19 @@
+meta {
+  name: Get private review
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/private/reviews/:reviewId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  reviewId: 66eb60b1a2a8ea71e42eda5b
+}
+
+auth:bearer {
+  token: {{token}}
+}

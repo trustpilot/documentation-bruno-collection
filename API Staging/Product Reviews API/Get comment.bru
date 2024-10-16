@@ -1,0 +1,20 @@
+meta {
+  name: Get comment
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/private/conversations/:conversationId/comments/:commentId
+  body: none
+  auth: bearer
+}
+
+params:path {
+  commentId: 66eae908773b9af2677b9143
+  conversationId: 507f191e810c19729de860ea
+}
+
+auth:bearer {
+  token: {{token}}
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Get public business unit
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/business-units/:businessUnitId
+  body: none
+  auth: apikey
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}
