@@ -1,0 +1,21 @@
+meta {
+  name: Get profile info of business unit
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/business-units/:businessUnitId/profileinfo
+  body: none
+  auth: apikey
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

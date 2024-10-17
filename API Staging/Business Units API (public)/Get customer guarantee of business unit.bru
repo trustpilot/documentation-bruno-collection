@@ -1,0 +1,21 @@
+meta {
+  name: Get customer guarantee of business unit
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/business-units/:businessUnitId/customerguarantee
+  body: none
+  auth: apikey
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

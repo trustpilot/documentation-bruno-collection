@@ -1,0 +1,23 @@
+meta {
+  name: Validate consumer display name
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/consumers/profile/displayname/validate
+  body: json
+  auth: apikey
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}
+
+body:json {
+  {
+    "displayName": "Cool Name"
+  }
+}

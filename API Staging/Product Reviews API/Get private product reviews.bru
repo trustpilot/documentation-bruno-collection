@@ -1,0 +1,28 @@
+meta {
+  name: Get private product reviews
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/private/product-reviews/business-units/:businessUnitId/reviews
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~page: 
+  ~perPage: 
+  ~sku: 
+  ~language: 
+  ~state: 
+  ~locale: 
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}

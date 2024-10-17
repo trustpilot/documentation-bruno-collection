@@ -1,0 +1,23 @@
+meta {
+  name: Get a list of all business units
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/business-units/all
+  body: none
+  auth: apikey
+}
+
+params:query {
+  ~country: 
+  ~perPage: 
+  ~cursor: 
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

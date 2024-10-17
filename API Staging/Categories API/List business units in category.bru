@@ -1,0 +1,28 @@
+meta {
+  name: List business units in category
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/categories/:categoryId/business-units?country=FR
+  body: none
+  auth: apikey
+}
+
+params:query {
+  country: FR
+  ~locale: 
+  ~page: 
+  ~perPage: 
+}
+
+params:path {
+  categoryId: building_materials_supplier
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}
