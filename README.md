@@ -1,5 +1,5 @@
 # documentation-bruno-collection
-A Bruno collection for testing our [public APIs](https://developers.trustpilot.com), owned by the [API team](https://trustpilot-production.atlassian.net/wiki/spaces/DPT/pages/1445560325/API+TEAM).
+A Bruno collection for testing our [public APIs](https://developers.trustpilot.com), owned by the API team.
 
 Public calls are based on public information that any consumer or business can find on Trustpilot without the use of an API.
 
