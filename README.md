@@ -28,11 +28,7 @@ Private calls are not accessible to everyone. They're only accessible to busines
 3. Execute request
 
 ## Authentication
-The Bruno collection has been configured to handle token authentication for you. On your first request (and prior to any following request), a script will fetch a valid token based on the environment variables you've configured, and populate the request accordingly. When a token expires, the script will fetch a new token automatically before the next request.
+The Bruno collection has been configured to handle token authentication for you. On your first request (and prior to any following request), a script will fetch a valid token based on the environment variables you've configured, and populate the request accordingly. When a token expires, the script will fetch a new token automatically before the next request. The script can be found in the collection configuration tab.
 
 ## Secrets
-Secrets are not to be shared with anyone. Do not untick the 'Secret' checkbox when configuring environment variables - this will ensure your secret value(s) are not commit to the collection's files.
-
-# TODO
-- Update default baseUrl and invitationsBaseUrl so that they're not pointing to TP staging but to prod
-- Add authentication via different grant_type(s)
+Secrets are not to be shared with anyone. Do not untick the 'Secret' checkbox when configuring environment variables - this will ensure your secret value(s) are not committed to the collection's files.
