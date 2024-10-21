@@ -21,7 +21,7 @@ script:pre-request {
           throw new Error('Missing environment variable name for storing the bearer token');
       }
   
-      const expiryDifferenceInMilliseconds = calculateTokenExpiryInMilliseconds(`expiryFor_${bearerTokenVarName}`)
+      const expiryDifferenceInMilliseconds = calculateTokenExpiryInMilliseconds(`${bearerTokenVarName}Expiry`)
   
       const oneMinuteInMilliseconds = 60000
   
@@ -48,7 +48,7 @@ script:pre-request {
           const tokenData = (await axios.post(envVariables[tokenEndpointVarName], { grant_type: "client_credentials" }, { headers: { "Authorization": `Basic ${btoa(`${envVariables[clientIdVarName]}:${envVariables[clientSecretVarName]}`)}`, "Content-Type": "application/x-www-form-urlencoded" } })).data
   
           bru.setVar(bearerTokenVarName, tokenData.access_token)
-          bru.setVar(`expiryFor_${bearerTokenVarName}`, moment().add(tokenData.expires_in, 'seconds').format())
+          bru.setVar(`${bearerTokenVarName}Expiry`, moment().add(tokenData.expires_in, 'seconds').format())
           bru.setVar('lastRequestedEnvironmentName', bru.getEnvName())
   
       } catch (error) {
