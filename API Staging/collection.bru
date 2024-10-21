@@ -1,0 +1,66 @@
+script:pre-request {
+  const axios = require('axios');
+  const btoa = require('btoa');
+  const moment = require('moment');
+  
+  const calculateTokenExpiryInMilliseconds = (tokenExpiryVarName) => {
+      const currentTime = moment()
+      const expiryTime = moment(bru.getVar(tokenExpiryVarName)) || currentTime
+      return expiryTime.diff(currentTime, 'milliseconds')
+  }
+  
+  const authenticateClient = async (config) => {
+      const {
+          tokenEndpointVarName,
+          clientIdVarName,
+          clientSecretVarName,
+          bearerTokenVarName
+      } = config;
+  
+      if (!bearerTokenVarName) {
+          throw new Error('Missing environment variable name for storing the bearer token');
+      }
+  
+      const expiryDifferenceInMilliseconds = calculateTokenExpiryInMilliseconds(`${bearerTokenVarName}Expiry`)
+  
+      const oneMinuteInMilliseconds = 60000
+  
+      if (expiryDifferenceInMilliseconds >= oneMinuteInMilliseconds &&
+          bru.getVar('lastRequestedEnvironmentName') === bru.getEnvName()) {
+          console.log('Taking already existing token.')
+          return
+      }
+      console.log('Requesting new token.')
+  
+      const envVariables = {
+          [tokenEndpointVarName]: bru.getEnvVar(tokenEndpointVarName),
+          [clientIdVarName]: bru.getEnvVar(clientIdVarName),
+          [clientSecretVarName]: bru.getEnvVar(clientSecretVarName)
+      }
+  
+      const missingVariables = Object.entries(envVariables).filter(([key, value]) => !value).map(([key]) => key)
+  
+      if (missingVariables.length > 0) {
+          throw new Error(`Missing required environment variables: ${missingVariables.join(', ')}`)
+      }
+  
+      try {
+          const tokenData = (await axios.post(envVariables[tokenEndpointVarName], { grant_type: "client_credentials" }, { headers: { "Authorization": `Basic ${btoa(`${envVariables[clientIdVarName]}:${envVariables[clientSecretVarName]}`)}`, "Content-Type": "application/x-www-form-urlencoded" } })).data
+  
+          bru.setVar(bearerTokenVarName, tokenData.access_token)
+          bru.setVar(`${bearerTokenVarName}Expiry`, moment().add(tokenData.expires_in, 'seconds').format())
+          bru.setVar('lastRequestedEnvironmentName', bru.getEnvName())
+  
+      } catch (error) {
+          throw error
+      }
+  
+  }
+  
+  await authenticateClient({
+      tokenEndpointVarName: 'accessTokenEndpoint',
+      clientIdVarName: 'apikey',
+      clientSecretVarName: 'apisecret',
+      bearerTokenVarName: 'token'
+  })
+}
