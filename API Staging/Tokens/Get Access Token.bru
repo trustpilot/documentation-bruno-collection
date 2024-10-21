@@ -20,3 +20,8 @@ body:form-urlencoded {
   username: {{username}}
   password: {{password}}
 }
+
+vars:post-response {
+  token: res.body.access_token
+  refreshToken: res.body.refresh_token
+}
