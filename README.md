@@ -35,3 +35,4 @@ Secrets are not to be shared with anyone. Do not untick the 'Secret' checkbox wh
 
 # TODO
 - Update default baseUrl and invitationsBaseUrl so that they're not pointing to TP staging but to prod
+- Add authentication via different grant_type(s)
