@@ -31,4 +31,4 @@ Private calls are not accessible to everyone. They're only accessible to busines
 The Bruno collection has been configured to handle token authentication for you. On your first request (and prior to any following request), a script will fetch a valid token based on the environment variables you've configured, and populate the request accordingly. When a token expires, the script will fetch a new token automatically before the next request. The script can be found in the collection configuration tab.
 
 ## Secrets
-Secrets are not to be shared with anyone. Do not untick the 'Secret' checkbox when configuring environment variables - this will ensure your secret value(s) are not committed to the collection's files.
+Secrets are the equivalent of passwords. Secrets are not to be shared with anyone. Do not untick the 'Secret' checkbox when configuring environment variables - this will ensure your secret value(s) are not committed to the collection's files.
