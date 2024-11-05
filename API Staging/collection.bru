@@ -14,7 +14,10 @@ script:pre-request {
           tokenEndpointVarName,
           clientIdVarName,
           clientSecretVarName,
-          bearerTokenVarName
+          bearerTokenVarName,
+          grantTypeVarName,
+          usernameVarName,
+          passwordVarName
       } = config;
   
       if (!bearerTokenVarName) {
@@ -26,17 +29,39 @@ script:pre-request {
       const oneMinuteInMilliseconds = 60000
   
       if (expiryDifferenceInMilliseconds >= oneMinuteInMilliseconds &&
-          bru.getVar('lastRequestedEnvironmentName') === bru.getEnvName()) {
+          bru.getVar('lastRequestedEnvironmentName') === bru.getEnvName() &&
+          bru.getVar('lastRequestedGrantType') === bru.getEnvVar(grantTypeVarName)
+      ) {
           console.log('Taking already existing token.')
           return
       }
-      console.log('Requesting new token.')
+  
+      console.log('Requesting new token.');
   
       const envVariables = {
           [tokenEndpointVarName]: bru.getEnvVar(tokenEndpointVarName),
           [clientIdVarName]: bru.getEnvVar(clientIdVarName),
-          [clientSecretVarName]: bru.getEnvVar(clientSecretVarName)
+          [clientSecretVarName]: bru.getEnvVar(clientSecretVarName),
+          [grantTypeVarName]: bru.getEnvVar(grantTypeVarName) || 'client_credentials'
       }
+  
+      const payload = {
+          grant_type: envVariables[grantTypeVarName]
+      }
+  
+      if (envVariables[grantTypeVarName].trim().toLowerCase() === 'password') {
+          console.log('Grant type: password');
+  
+          Object.assign(envVariables, {
+              [usernameVarName]: bru.getEnvVar(usernameVarName),
+              [passwordVarName]: bru.getEnvVar(passwordVarName),
+          })
+  
+          Object.assign(payload, {
+              username: envVariables[usernameVarName],
+              password: envVariables[passwordVarName]
+          })
+      };
   
       const missingVariables = Object.entries(envVariables).filter(([key, value]) => !value).map(([key]) => key)
   
@@ -45,22 +70,35 @@ script:pre-request {
       }
   
       try {
-          const tokenData = (await axios.post(envVariables[tokenEndpointVarName], { grant_type: "client_credentials" }, { headers: { "Authorization": `Basic ${btoa(`${envVariables[clientIdVarName]}:${envVariables[clientSecretVarName]}`)}`, "Content-Type": "application/x-www-form-urlencoded" } })).data
+          const tokenData = (
+              await axios.post(
+                  envVariables[tokenEndpointVarName],
+                  payload,
+                  {
+                      headers: {
+                          "Authorization": `Basic ${btoa(`${envVariables[clientIdVarName]}:${envVariables[clientSecretVarName]}`)}`,
+                          "Content-Type": "application/x-www-form-urlencoded"
+                      }
+                  })
+          ).data
   
           bru.setVar(bearerTokenVarName, tokenData.access_token)
           bru.setVar(`${bearerTokenVarName}Expiry`, moment().add(tokenData.expires_in, 'seconds').format())
           bru.setVar('lastRequestedEnvironmentName', bru.getEnvName())
+          bru.setVar('lastRequestedGrantType', bru.getEnvVar(grantTypeVarName))
   
       } catch (error) {
           throw error
       }
-  
   }
   
   await authenticateClient({
       tokenEndpointVarName: 'accessTokenEndpoint',
       clientIdVarName: 'apikey',
       clientSecretVarName: 'apisecret',
-      bearerTokenVarName: 'token'
+      bearerTokenVarName: 'token',
+      usernameVarName: 'username',
+      passwordVarName: 'password',
+      grantTypeVarName: 'grantType'
   })
 }
