@@ -10,6 +10,7 @@ Private calls are not accessible to everyone. They're only accessible to busines
 - A Trustpilot API key and secret (obtain from Trustpilot Business, see article on [how to use Trustpilot APIs](https://support.trustpilot.com/hc/en-us/articles/207309867-How-to-use-Trustpilot-APIs))
 
 ## Setup
+This setup uses OAuth2 grant type: client_credentials by default 
 1. Clone this repository (or download as zip and unzip)
 2. Launch Bruno client
 3. Open the collection within Bruno client
@@ -17,10 +18,9 @@ Private calls are not accessible to everyone. They're only accessible to busines
 - `businessUnitId` - unique identifier of the business unit
 - `baseUrl` - base URL for Trustpilot API environment (default is https://api.trustpilot.com/v1/)
 - `invitationsBaseUrl` - base URL for Trustpilot invitations API environment (default is https://invitations-api.trustpilot.com/v1/)
-- `username` - Trustpilot business username
-- `password` - Trustpilot business password
 - `apikey` - api key for the business application
 - `apisecret` - api secret for the (above) business application
+
 
 ## Make API request
 1. Select endpoint
@@ -29,6 +29,15 @@ Private calls are not accessible to everyone. They're only accessible to busines
 
 ## Authentication
 The Bruno collection has been configured to handle token authentication for you. On your first request (and prior to any following request), a script will fetch a valid token based on the environment variables you've configured, and populate the request accordingly. When a token expires, the script will fetch a new token automatically before the next request. The script can be found in the collection configuration tab.
+
+## Optional setup for using OAuth2 grant type: password
+If you would instead like to use `grant type: password`:
+1. Update the following environment variables:
+- `grantType` - add `password`
+- `username` - Trustpilot business username
+- `password` - Trustpilot business password
+
+The background script will now automatically fetch a valid token with the updated grant type.
 
 ## Secrets
 Secrets are the equivalent of passwords. Secrets are not to be shared with anyone. Do not untick the 'Secret' checkbox when configuring environment variables - this will ensure your secret value(s) are not committed to the collection's files.
