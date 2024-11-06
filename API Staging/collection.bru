@@ -38,29 +38,31 @@ script:pre-request {
   
       console.log('Requesting new token.');
   
-      const envVariables = {
+      let envVariables = {
           [tokenEndpointVarName]: bru.getEnvVar(tokenEndpointVarName),
           [clientIdVarName]: bru.getEnvVar(clientIdVarName),
           [clientSecretVarName]: bru.getEnvVar(clientSecretVarName),
           [grantTypeVarName]: bru.getEnvVar(grantTypeVarName) || 'client_credentials'
       }
   
-      const payload = {
+      let payload = {
           grant_type: envVariables[grantTypeVarName]
       }
   
       if (envVariables[grantTypeVarName].trim().toLowerCase() === 'password') {
           console.log('Grant type: password');
   
-          Object.assign(envVariables, {
+          envVariables = {
+              ...envVariables,
               [usernameVarName]: bru.getEnvVar(usernameVarName),
               [passwordVarName]: bru.getEnvVar(passwordVarName),
-          })
+          }
   
-          Object.assign(payload, {
-              username: envVariables[usernameVarName],
-              password: envVariables[passwordVarName]
-          })
+          payload = {
+              ...payload,
+              [usernameVarName]: envVariables[usernameVarName],
+              [passwordVarName]: envVariables[passwordVarName]
+          }
       };
   
       const missingVariables = Object.entries(envVariables).filter(([key, value]) => !value).map(([key]) => key)
