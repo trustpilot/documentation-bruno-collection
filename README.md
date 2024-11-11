@@ -169,7 +169,7 @@ A review in Trustpilot is feedback provided by a consumer about a business or pr
 #### How to Find Reviews:
 There are several ways to find reviews depending on your needs:
 
-Get Business Unit Reviews (Public):
+Get Business Unit Reviews:
 ```
 GET https://api.trustpilot.com/v1/business-units/{businessUnitId}/reviews
 ```
@@ -186,8 +186,7 @@ Get Business Unit Private Reviews:
 GET https://api.trustpilot.com/v1/private/business-units/{businessUnitId}/reviews
 ```
 This endpoint requires Business User OAuth Token and provides additional private information like:
-- Consumer email
-- Order ID
+- Consumer ID
 - Reference ID
 - Referral email
 
@@ -266,13 +265,13 @@ Required:
 Response includes:
 ```json
 {
-  "city": null,
-  "about": null,
-  "displayName": null,
-  "locale": null,
-  "gender": null,
-  "country": null,
-  "id": null,
+  "city": "",
+  "about": "",
+  "displayName": "Test Consumer",
+  "locale": "en-US",
+  "gender": "",
+  "country": "US",
+  "id": "781faa232895a4f79f108782",
   "createdAt": null,
   "hasImage": false,
   "birthYear": 0.0,
@@ -473,14 +472,6 @@ Request body example:
 }
 ```
 
-Find Product Reviews by SKU:
-You can verify SKUs exist by looking up their reviews:
-```
-GET https://api.trustpilot.com/v1/product-reviews/business-units/{businessUnitId}/reviews
-```
-Parameters:
-- sku: The SKU(s) you want to look up
-- page, perPage, language, etc.
 
 Important Notes:
 - SKUs should be unique within your business unit
@@ -528,7 +519,7 @@ Characteristics:
 PRODUCT REVIEW ENDPOINTS:
 Get product reviews:
 ```
-GET https://api.trustpilot.com/v1/product-reviews/business-units/{businessUnitId}/reviews
+GET https://api.trustpilot.com/v1/product-reviews/business-units/{businessUnitId}
 ```
 
 Key Differences in API Handling:
@@ -567,7 +558,7 @@ Product Reviews include:
 }
 ```
 
-Review Management:
+#### Review Management:
 Service Reviews:
 - Can be replied to directly
 - Can be tagged
