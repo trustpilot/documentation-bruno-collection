@@ -43,7 +43,9 @@ The background script will now automatically fetch a valid token with the update
 Secrets are the equivalent of passwords. Secrets are not to be shared with anyone. Do not untick the 'Secret' checkbox when configuring environment variables - this will ensure your secret value(s) are not committed to the collection's files.
 
 ## Guidance
-### Business Units
+<details>
+<summary>Business Units</summary>
+
 #### What is a Business Unit?
 A business unit is the fundamental organisational concept in Trustpilot that serves as the collection point for all content related to a website. Specifically:
 - It contains all your company's:
@@ -109,7 +111,10 @@ The response will look like this:
   - Managing product reviews
   - And many other API endpoints
 
-### Categories
+</details>
+
+<details>
+<summary>Categories</summary>
 
 #### What is a Category?
 Categories in Trustpilot are classifications for business units that help organise and group similar businesses together. Each business unit can be associated with multiple categories, and categories can have parent-child relationships.
@@ -159,7 +164,10 @@ Endpoint: `GET https://api.trustpilot.com/v1/categories/{categoryId}/business-un
 - Category names are translated based on the locale parameter
 - Categories are country-specific
 
-### Reviews
+</details>
+
+<details>
+<summary>Reviews</summary>
 
 #### What is a Review?
 A review in Trustpilot is feedback provided by a consumer about a business or product. Reviews can be either:
@@ -241,7 +249,11 @@ Response example:
 - Reviews can be liked by other consumers
 - Product reviews have additional fields like SKU and product details
 
-### Consumers
+</details>
+
+<details>
+<summary>Consumers</summary>
+
 #### What is a Consumer?
 A consumer in Trustpilot is someone who writes reviews. Consumer profiles contain information such as:
 - Display name
@@ -337,7 +349,13 @@ Privacy Considerations:
 - Some consumer information is only available through authenticated endpoints
 - Consumer profiles respect privacy settings set by the consumers themselves
 
-### Product reviews
+</details>
+
+### Product reviews:
+
+<details>
+<summary>Conversations</summary>
+
 #### What is a Conversation?
 A conversation is a thread attached to a product review that allows business users and consumers to interact through comments. Conversations are only created if a business replies to the consumer’s product review.
 
@@ -390,7 +408,11 @@ The response will include the comment details:
 - You can later retrieve conversation details using the Get conversation endpoints (both public and private versions available)
 - Comments can be updated after creation using the Update comment endpoint
 
-### SKUs
+</details>
+
+<details>
+<summary>SKUs</summary>
+
 #### What is an SKU?
 An SKU (Stock Keeping Unit) is a unique identifier for a product in Trustpilot's system. SKUs are used to:
 - Link product reviews to specific products
@@ -483,9 +505,12 @@ Important Notes:
   - Create review invitations
   - Manage product information
 
-### Product Reviews vs Service Reviews:
+</details>
 
-SERVICE REVIEWS
+<details>
+<summary>Product Reviews vs Service Reviews</summary>
+
+#### SERVICE REVIEWS
 A service review is feedback about the overall business/company experience.
 
 Characteristics:
@@ -496,13 +521,13 @@ Characteristics:
 - Contributes to the overall TrustScore of the business
 - Shows up on the main business profile
 
-SERVICE REVIEW ENDPOINTS:
+#### SERVICE REVIEW ENDPOINTS:
 Get service reviews:
 ```
 GET https://api.trustpilot.com/v1/business-units/{businessUnitId}/reviews
 ```
 
-PRODUCT REVIEWS
+#### PRODUCT REVIEWS
 A product review is feedback about a specific product purchased from the business.
 
 Characteristics:
@@ -516,7 +541,7 @@ Characteristics:
 - Doesn't directly affect the overall TrustScore
 
 
-PRODUCT REVIEW ENDPOINTS:
+#### PRODUCT REVIEW ENDPOINTS:
 Get product reviews:
 ```
 GET https://api.trustpilot.com/v1/product-reviews/business-units/{businessUnitId}
@@ -559,13 +584,14 @@ Product Reviews include:
 ```
 
 #### Review Management:
-Service Reviews:
+##### Service Reviews:
 - Can be replied to directly
 - Can be tagged
 - Can be reported
 
-Product Reviews:
+##### Product Reviews:
 - Require creating a conversation first to reply
 - Can have multiple comments in the conversation
 - Can include product-specific attributes
 - Can have attachments (like product images)
+</details>
