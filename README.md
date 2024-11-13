@@ -118,7 +118,6 @@ The response will look like this:
 #### What is a Category?
 Categories in Trustpilot are classifications for business units that help organise and group similar businesses together. Each business unit can be associated with multiple categories, and categories can have parent-child relationships.
 
-- Categories are hierarchical and can have parent-child relationships
 - Category names are translated based on the locale parameter
 - Categories are country-specific
 
