@@ -55,7 +55,13 @@ A business unit is the fundamental organisational concept in Trustpilot that ser
 - It's associated with your domain name(s):
   - One main domain name (primary name)
 - Each business unit has a unique identifier (Business Unit ID or BUID)
-- A business user can have access to one or multiple business units
+- A business user can have access to one or multiple business units. If you have multiple domains, each will have its own Business Unit ID
+- The Business Unit ID is required for:
+  - Getting reviews
+  - Creating invitations
+  - Managing product reviews
+  - And many other API endpoints
+
 
 #### How to Find Your Business Unit ID:
 Use the Find Business Unit endpoint: 
@@ -100,16 +106,9 @@ The response will look like this:
 }
 ```
 
-#### Notes:
 - The "id" field in the response is your Business Unit ID (BUID)
 - This ID is essential and required for many other API operations
-- If you have multiple domains, each will have its own Business Unit ID
 - Using the wrong Business Unit ID in API calls may result in 403 Forbidden errors
-- The Business Unit ID is required for:
-  - Getting reviews
-  - Creating invitations
-  - Managing product reviews
-  - And many other API endpoints
 
 </details>
 
@@ -118,6 +117,10 @@ The response will look like this:
 
 #### What is a Category?
 Categories in Trustpilot are classifications for business units that help organise and group similar businesses together. Each business unit can be associated with multiple categories, and categories can have parent-child relationships.
+
+- Categories are hierarchical and can have parent-child relationships
+- Category names are translated based on the locale parameter
+- Categories are country-specific
 
 #### How to Find Categories:
 List All Categories:
@@ -159,11 +162,6 @@ You can also see what businesses are in a specific category:
 
 Endpoint: `GET https://api.trustpilot.com/v1/categories/{categoryId}/business-units`
 
-#### Notes:
-- Categories are hierarchical and can have parent-child relationships
-- Category names are translated based on the locale parameter
-- Categories are country-specific
-
 </details>
 
 <details>
@@ -173,6 +171,16 @@ Endpoint: `GET https://api.trustpilot.com/v1/categories/{categoryId}/business-un
 A review in Trustpilot is feedback provided by a consumer about a business or product. Reviews can be either:
 1. Service Reviews - Reviews about the overall business/service
 2. Product Reviews - Reviews about specific products
+
+
+- Reviews can have different states: active, reported, etc.
+- Private review endpoints provide more detailed information but require authentication
+- Reviews can be filtered by various criteria like stars, language, date
+- Some reviews may have company replies
+- Reviews can be verified or unverified
+- Reviews can have tags associated with them
+- Reviews can be liked by other consumers
+- Product reviews have additional fields like SKU and product details
 
 #### How to Find Reviews:
 There are several ways to find reviews depending on your needs:
@@ -238,17 +246,6 @@ Response example:
   }
 }
 ```
-
-#### Notes:
-- Reviews can have different states: active, reported, etc.
-- Private review endpoints provide more detailed information but require authentication
-- Reviews can be filtered by various criteria like stars, language, date
-- Some reviews may have company replies
-- Reviews can be verified or unverified
-- Reviews can have tags associated with them
-- Reviews can be liked by other consumers
-- Product reviews have additional fields like SKU and product details
-
 </details>
 
 <details>
@@ -264,6 +261,12 @@ A consumer in Trustpilot is someone who writes reviews. Consumer profiles contai
 - Language/locale preferences
 
 Consumer IDs are typically obtained from review data rather than searched directly
+
+- Consumer privacy is important - not all information is publicly available
+- Consumer profiles may have different levels of completeness depending on what information they've provided
+- Some endpoints require authentication while others are public
+- Consumers can have verified or unverified reviews
+- Consumer display names must be valid according to Trustpilot's rules
 
 #### How to Find Consumer Information:
 
@@ -336,15 +339,7 @@ Request body:
   ]
 }
 ```
-
-#### Notes:
-- Consumer privacy is important - not all information is publicly available
-- Consumer profiles may have different levels of completeness depending on what information they've provided
-- Some endpoints require authentication while others are public
-- Consumers can have verified or unverified reviews
-- Consumer display names must be valid according to Trustpilot's rules
-
-Privacy Considerations:
+#### Privacy Considerations:
 - Email addresses and other private information are not publicly available
 - Some consumer information is only available through authenticated endpoints
 - Consumer profiles respect privacy settings set by the consumers themselves
@@ -401,13 +396,12 @@ The response will include the comment details:
 }
 ```
 
-#### Notes:
 - Conversations can be set to either public or private state
 - If set to private, third parties won't see the conversation
 - You can manage the conversation state using the "Set conversation state" endpoint
 - You can later retrieve conversation details using the Get conversation endpoints (both public and private versions available)
 - Comments can be updated after creation using the Update comment endpoint
-
+  
 </details>
 
 <details>
@@ -419,6 +413,15 @@ An SKU (Stock Keeping Unit) is a unique identifier for a product in Trustpilot's
 - Track product information
 - Manage product review invitations
 - Get product review summaries
+
+- SKUs should be unique within your business unit
+- SKUs are case-sensitive
+- You can batch process multiple SKUs in many endpoints
+- SKUs can be used to:
+  - Get product reviews
+  - Get review summaries
+  - Create review invitations
+  - Manage product information
 
 #### How to Find SKUs:
 
@@ -494,23 +497,12 @@ Request body example:
 }
 ```
 
-
-Important Notes:
-- SKUs should be unique within your business unit
-- SKUs are case-sensitive
-- You can batch process multiple SKUs in many endpoints
-- SKUs can be used to:
-  - Get product reviews
-  - Get review summaries
-  - Create review invitations
-  - Manage product information
-
 </details>
 
 <details>
 <summary>Product Reviews vs Service Reviews</summary>
 
-#### SERVICE REVIEWS
+#### Service Reviews
 A service review is feedback about the overall business/company experience.
 
 Characteristics:
@@ -521,13 +513,13 @@ Characteristics:
 - Contributes to the overall TrustScore of the business
 - Shows up on the main business profile
 
-#### SERVICE REVIEW ENDPOINTS:
+#### Service Review Endpoints:
 Get service reviews:
 ```
 GET https://api.trustpilot.com/v1/business-units/{businessUnitId}/reviews
 ```
 
-#### PRODUCT REVIEWS
+#### Product Reviews
 A product review is feedback about a specific product purchased from the business.
 
 Characteristics:
@@ -541,7 +533,7 @@ Characteristics:
 - Doesn't directly affect the overall TrustScore
 
 
-#### PRODUCT REVIEW ENDPOINTS:
+#### Product Review Endpoints:
 Get product reviews:
 ```
 GET https://api.trustpilot.com/v1/product-reviews/business-units/{businessUnitId}
