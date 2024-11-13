@@ -251,7 +251,7 @@ Response example:
 <summary>Consumers</summary>
 
 #### What is a Consumer?
-A consumer in Trustpilot is someone who writes reviews. Consumer profiles contain information such as:
+A consumer in Trustpilot is a user who interacts with the consumer site (e.g. to write a review). Consumer profiles contain information such as:
 - Display name
 - Profile information
 - Number of reviews
