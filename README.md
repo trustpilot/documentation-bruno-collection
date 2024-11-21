@@ -180,12 +180,6 @@ A review in Trustpilot is feedback provided by a consumer about a business or pr
 - Reviews can have tags associated with them
 - Reviews can be liked by other consumers
 - Product reviews have additional fields like SKU and product details
-</details>
-
-### Service reviews:
-
-<details>
-<summary>Service Reviews</summary>
 
 #### How to Find Reviews:
 There are several ways to find reviews depending on your needs:
@@ -350,8 +344,6 @@ Request body:
 - Consumer profiles respect privacy settings set by the consumers themselves
 
 </details>
-
-### Product reviews:
 
 <details>
 <summary>Conversations</summary>
