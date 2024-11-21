@@ -16,8 +16,8 @@ This setup uses OAuth2 grant type: client_credentials by default
 3. Open the collection within Bruno client
 4. Update the environment variables:
 - `businessUnitId` - unique identifier of the business unit
-- `baseUrl` - base URL for Trustpilot API environment (default is https://api.trustpilot.com/v1/)
-- `invitationsBaseUrl` - base URL for Trustpilot invitations API environment (default is https://invitations-api.trustpilot.com/v1/)
+- `baseUrl` - base URL for Trustpilot API environment (default is https://api.trustpilot.com/v1)
+- `invitationsBaseUrl` - base URL for Trustpilot invitations API environment (default is https://invitations-api.trustpilot.com/v1)
 - `apikey` - api key for the business application
 - `apisecret` - api secret for the (above) business application
 
