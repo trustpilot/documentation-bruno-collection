@@ -346,7 +346,7 @@ Request body:
 ```
 #### Privacy Considerations:
 - Email addresses and other private information are not publicly available
-- Some consumer information is only available through private endpoints
+- Some consumer information is only available through authenticated endpoints
 - Consumer profiles respect privacy settings set by the consumers themselves
 
 </details>
