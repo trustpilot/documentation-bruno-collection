@@ -1,0 +1,42 @@
+meta {
+  name: Create product review invitation link
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/private/product-reviews/business-units/:businessUnitId/invitation-links
+  body: json
+  auth: bearer
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "consumer": {
+      "email": "johndoe@somewhere.com",
+      "name": "John Doe"
+    },
+    "referenceId": "123ABC",
+    "locale": "en-US",
+    "redirectUri": "https://www.example.com",
+    "products": [
+      {
+        "productUrl": "http://www.mycompanystore.com/products/12345.htm",
+        "imageUrl": "http://www.mycompanystore.com/products/images/12345.jpg",
+        "name": "Metal Toy Car",
+        "sku": "ABC-1234",
+        "gtin": "01234567890",
+        "mpn": "7TX1641",
+        "brand": "Acme"
+      }
+    ]
+  }
+}

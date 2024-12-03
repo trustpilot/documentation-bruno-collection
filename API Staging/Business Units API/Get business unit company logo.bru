@@ -1,0 +1,21 @@
+meta {
+  name: Get business unit company logo
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/business-units/:businessUnitId/images/logo
+  body: none
+  auth: apikey
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

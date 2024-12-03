@@ -1,0 +1,31 @@
+meta {
+  name: Delete invitation data (private)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{invitationsBaseUrl}}/private/business-units/:businessUnitId/invitation-data/delete
+  body: json
+  auth: bearer
+}
+
+params:query {
+  ~x-business-user-id: 
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "customerEmails": [
+      "someemail@trustpilot.com"
+    ]
+  }
+}

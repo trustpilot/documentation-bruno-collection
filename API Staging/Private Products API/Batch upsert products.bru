@@ -1,0 +1,50 @@
+meta {
+  name: Batch upsert products
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/private/business-units/:businessUnitId/products
+  body: json
+  auth: bearer
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "products": [
+      {
+        "sku": "Prod123",
+        "googleMerchantCenterProductId": "Product_DK_1007653571_2874605123",
+        "title": "Toy car",
+        "link": "http://myshop.com/products/toy-car",
+        "imageLink": "http://myshop.com/products/images/toy-car.jpg",
+        "price": "99.95",
+        "currency": "USD",
+        "gtin": "3200000003774",
+        "mpn": "HSC0424PP",
+        "brand": "ToyProducer",
+        "description": "A very soft shoe built for walking long distances.",
+        "productCategoryGoogleId": "1267",
+        "groupId": "123456",
+        "variationAttributes": {
+          "color": "blue",
+          "pattern": "striped",
+          "material": "suede",
+          "ageGroup": "adult",
+          "gender": "female",
+          "size": "XS"
+        }
+      }
+    ],
+    "skuSameAsGoogleMerchantCenterProductId": true
+  }
+}

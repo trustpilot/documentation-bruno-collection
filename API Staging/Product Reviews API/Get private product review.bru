@@ -1,0 +1,23 @@
+meta {
+  name: Get private product review
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/private/product-reviews/:reviewId
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~locale: 
+}
+
+params:path {
+  reviewId: 66bb7d52ef6229b0498ec195
+}
+
+auth:bearer {
+  token: {{token}}
+}

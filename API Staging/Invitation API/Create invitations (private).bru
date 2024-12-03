@@ -1,0 +1,63 @@
+meta {
+  name: Create invitations (private)
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{invitationsBaseUrl}}/private/business-units/:businessUnitId/email-invitations
+  body: json
+  auth: bearer
+}
+
+params:query {
+  ~x-business-user-id: 
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "replyTo": "someemail1@trustpilot.com",
+    "locale": "en-US",
+    "senderName": "John Doe",
+    "senderEmail": "someemail2@trustpilot.com",
+    "locationId": "ABC123",
+    "referenceNumber": "inv00001",
+    "consumerName": "John Doe",
+    "consumerEmail": "someemail3@trustpilot.com",
+    "type": "email",
+    "serviceReviewInvitation": {
+      "templateId": "507f191e810c19729de860ea",
+      "preferredSendTime": "09/07/2013 13:37:00",
+      "redirectUri": "https://trustpilot.com",
+      "tags": [
+        "tag1",
+        "tag2"
+      ]
+    },
+    "productReviewInvitation": {
+      "templateId": "507f191e810c19729de860ea",
+      "preferredSendTime": "09/07/2013 13:37:00",
+      "redirectUri": "https://trustpilot.com",
+      "products": [
+        {
+          "sku": "ABC-1234",
+          "name": "Metal Toy Car",
+          "mpn": "7TX1641",
+          "brand": "ACME",
+          "imageUrl": "http://www.mycompanystore.com/products/images/12345.jpg",
+          "productUrl": "http://www.mycompanystore.com/products/12345.htm",
+          "gtin": "01234567890",
+          "productCategoryGoogleId": "1267"
+        }
+      ]
+    }
+  }
+}
