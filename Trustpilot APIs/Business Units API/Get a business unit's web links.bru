@@ -1,0 +1,25 @@
+meta {
+  name: Get a business unit's web links
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/business-units/:businessUnitId/web-links?locale=da-DK
+  body: none
+  auth: apikey
+}
+
+params:query {
+  locale: da-DK
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

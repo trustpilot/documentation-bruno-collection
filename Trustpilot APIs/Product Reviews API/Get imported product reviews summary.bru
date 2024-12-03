@@ -1,0 +1,25 @@
+meta {
+  name: Get imported product reviews summary
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/product-reviews/business-units/:businessUnitId/imported-reviews-summaries?sku=180883_VMAT
+  body: none
+  auth: apikey
+}
+
+params:query {
+  sku: 180883_VMAT
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

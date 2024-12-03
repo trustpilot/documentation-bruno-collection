@@ -1,0 +1,31 @@
+meta {
+  name: Get public batch aggregated attribute rating
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{baseUrl}}/product-reviews/business-units/:businessUnitId/attribute-summaries
+  body: json
+  auth: apikey
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}
+
+body:json {
+  {
+    "skus": [
+      "ABCD-1234",
+      "180883_VMAT"
+    ],
+    "locale": "en-GB"
+  }
+}

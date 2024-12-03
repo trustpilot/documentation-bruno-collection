@@ -1,0 +1,25 @@
+meta {
+  name: Set conversation state
+  type: http
+  seq: 16
+}
+
+post {
+  url: {{baseUrl}}/private/conversations/:conversationId/state
+  body: json
+  auth: bearer
+}
+
+params:path {
+  conversationId: 66eae87a773b9af2677b9142
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "state": "public"
+  }
+}

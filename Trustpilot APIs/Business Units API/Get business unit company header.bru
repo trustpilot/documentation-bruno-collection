@@ -1,0 +1,21 @@
+meta {
+  name: Get business unit company header
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/business-units/:businessUnitId/images/header
+  body: none
+  auth: apikey
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

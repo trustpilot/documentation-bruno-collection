@@ -1,0 +1,26 @@
+meta {
+  name: Create comment
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/private/conversations/:conversationId/comments
+  body: json
+  auth: bearer
+}
+
+params:path {
+  conversationId: 66eae87a773b9af2677b9142
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "content": "Thank you for you kind words, we really appreciate it.",
+    "integrationId": "IB2478HFAJKN38"
+  }
+}
