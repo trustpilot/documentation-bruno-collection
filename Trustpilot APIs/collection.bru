@@ -21,7 +21,8 @@ script:pre-request {
       } = config;
   
       if (!bearerTokenVarName) {
-          throw new Error('Missing environment variable name for storing the bearer token');
+        console.error('Missing environment variable name for storing the bearer token');
+        throw new Error('Missing environment variable name for storing the bearer token');
       }
   
       const expiryDifferenceInMilliseconds = calculateTokenExpiryInMilliseconds(`${bearerTokenVarName}Expiry`)
@@ -68,7 +69,8 @@ script:pre-request {
       const missingVariables = Object.entries(envVariables).filter(([key, value]) => !value).map(([key]) => key)
   
       if (missingVariables.length > 0) {
-          throw new Error(`Missing required environment variables: ${missingVariables.join(', ')}`)
+        console.error(`Missing required environment variables: ${missingVariables.join(', ')}`)
+        throw new Error(`Missing required environment variables: ${missingVariables.join(', ')}`)
       }
   
       try {
@@ -90,7 +92,9 @@ script:pre-request {
           bru.setVar('lastRequestedGrantType', bru.getEnvVar(grantTypeVarName))
   
       } catch (error) {
-          throw error
+        const errorMessage = `${error.name} while authenticating client: ${error.message}`
+        console.error(errorMessage)
+        throw errorMessage
       }
   }
   

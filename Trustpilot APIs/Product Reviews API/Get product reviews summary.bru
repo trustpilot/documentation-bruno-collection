@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{baseUrl}}/product-reviews/business-units/:businessUnitId?Sku=sku20230915-2
+  url: {{baseUrl}}/product-reviews/business-units/:businessUnitId?sku={{sku}}
   body: none
   auth: apikey
 }
 
 params:query {
-  Sku: sku20230915-2
+  sku: {{sku}}
 }
 
 params:path {

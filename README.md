@@ -20,6 +20,12 @@ This setup uses OAuth2 grant type: client_credentials by default
 - `invitationsBaseUrl` - base URL for Trustpilot invitations API environment (default is https://invitations-api.trustpilot.com/v1)
 - `apikey` - api key for the business application
 - `apisecret` - api secret for the (above) business application
+- `yourDomain` - domain url
+- `consumerId` - Unique identifer for consumer
+- `conversationId` - Unique identifer for conversation
+- `reviewId` - Unique identifer for a review
+- `commentId` - Unique identifer for a specfic comment
+- `sku` - Stock keeping unit (unique identifer for specific product)
 
 
 ## Make API request
@@ -78,7 +84,7 @@ The response will look like this:
 ```json
 {
     "links": [...],
-    "id": "507f191e810c19729de860ea",  // This is your Business Unit ID
+    "id": "507f191e810c19729de86aaa",  // This is your Business Unit ID
     "displayName": "Your Company Name",
     "name": {
         "identifying": "example.com",
@@ -223,7 +229,7 @@ Required:
 Response example:
 ```json
 {
-  "id": "507f191e810c19729de860ea",
+  "id": "507f191e810c19729de86aaa",
   "stars": 5,
   "title": "My review",
   "text": "This shop is great",
@@ -241,7 +247,7 @@ Response example:
     "displayLocation": "Frederiksberg, DK",
     "numberOfReviews": 1,
     "displayName": "John Doe",
-    "id": "507f191e810c19729de860ea"
+    "id": "507f191e810c19729de8asd4"
   }
 }
 ```
@@ -285,7 +291,7 @@ Response includes:
   "locale": "en-US",
   "gender": "",
   "country": "US",
-  "id": "781faa232895a4f79f108782",
+  "id": "781faa232895a4f79f109999",
   "createdAt": null,
   "hasImage": false,
   "birthYear": 0.0,
@@ -363,7 +369,7 @@ Required:
 The response will look like:
 ```json
 {
-  "conversationId": "507f191e810c19729de860ea"
+  "conversationId": "507f191e810c19729de86989"
 }
 ```
 
@@ -383,10 +389,10 @@ Required:
 The response will include the comment details:
 ```json
 {
-  "commentId": "507f191e810c19729de860ea",
+  "commentId": "507f191e810c19729de86989",
   "createdAt": "2013-09-07T13:37:00",
   "author": {
-    "id": "507f191e810c19729de860ea",
+    "id": "507f191e810c19729de86778",
     "type": "businessUser"
   },
   "content": "Your comment text here"
@@ -440,7 +446,7 @@ Response example:
 {
   "products": [
     {
-      "id": "507f191e810c19729de860ea",
+      "id": "507f191e810c19729de86909",
       "sku": "Prod123",
       "googleMerchantCenterProductId": "Product_DK_1007653571_2874605123",
       "title": "Toy car",
@@ -452,10 +458,10 @@ Response example:
           "url": "https://product-reviews-images.trustpilot.com/5837640412df3f0aabf9989a_100pxWide.png"
         }
       ],
-      "businessUnitId": "507f191e810c19729de860ea",
+      "businessUnitId": "507f191e810c19729de86909",
       "price": "99.95",
       "gtin": "3200000003774",
-      "mpn": "HSC0424PP",
+      "mpn": "HSC0424PC",
       "brand": "ToyProducer",
       "currency": "EUR",
       "description": "A metal toy car"
@@ -483,8 +489,8 @@ Request body example:
       "imageLink": "http://myshop.com/products/images/toy-car.jpg",
       "price": "99.95",
       "currency": "USD",
-      "gtin": "3200000003774",
-      "mpn": "HSC0424PP",
+      "gtin": "3200000003767",
+      "mpn": "HSC0424PC",
       "brand": "ToyProducer",
       "description": "A very soft shoe built for walking long distances.",
       "productCategoryGoogleId": "1267",
@@ -556,7 +562,7 @@ Product Reviews include:
   "stars": 4,
   "content": "This product was nice",
   "product": {
-    "id": "507f191e810c19729de860ea",
+    "id": "507f191e810c19729de86909",
     "productUrl": "http://www.mycompanystore.com/products/12345.htm",
     "name": "Metal Toy Car",
     "sku": "ABC-1234",

@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{baseUrl}}/business-units/find?name=trustpilot.com
+  url: {{baseUrl}}/business-units/find?name={{yourDomain}}
   body: none
   auth: apikey
 }
 
 params:query {
-  name: trustpilot.com
+  name: {{yourDomain}}
 }
 
 auth:apikey {

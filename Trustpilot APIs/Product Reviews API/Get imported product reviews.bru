@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{baseUrl}}/product-reviews/business-units/:businessUnitId/imported-reviews?sku=180883_VMAT
+  url: {{baseUrl}}/product-reviews/business-units/:businessUnitId/imported-reviews?sku={{sku}}
   body: none
   auth: apikey
 }
 
 params:query {
-  sku: 180883_VMAT
+  sku: {{sku}}
   ~page: 
   ~perPage: 
   ~stars: 
