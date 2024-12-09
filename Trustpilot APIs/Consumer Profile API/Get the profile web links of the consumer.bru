@@ -1,0 +1,25 @@
+meta {
+  name: Get the profile web links of the consumer
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/consumers/:consumerId/web-links
+  body: none
+  auth: apikey
+}
+
+params:query {
+  ~locale: 
+}
+
+params:path {
+  consumerId: {{consumerId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Get public conversation
+  type: http
+  seq: 15
+}
+
+get {
+  url: {{baseUrl}}/conversations/:conversationId
+  body: none
+  auth: apikey
+}
+
+params:path {
+  conversationId: {{conversationId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

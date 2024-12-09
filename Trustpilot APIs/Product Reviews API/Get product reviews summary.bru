@@ -1,0 +1,25 @@
+meta {
+  name: Get product reviews summary
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{baseUrl}}/product-reviews/business-units/:businessUnitId?sku={{sku}}
+  body: none
+  auth: apikey
+}
+
+params:query {
+  sku: {{sku}}
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

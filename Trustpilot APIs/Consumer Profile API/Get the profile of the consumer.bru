@@ -1,0 +1,21 @@
+meta {
+  name: Get the profile of the consumer
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/consumers/:consumerId/profile
+  body: none
+  auth: apikey
+}
+
+params:path {
+  consumerId: {{consumerId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

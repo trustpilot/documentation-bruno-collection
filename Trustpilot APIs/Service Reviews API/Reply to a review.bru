@@ -1,0 +1,26 @@
+meta {
+  name: Reply to a review
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/private/reviews/:reviewId/reply
+  body: json
+  auth: bearer
+}
+
+params:path {
+  reviewId: {{reviewId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "authorBusinessUserId": "507f191e810c19729de860aa",
+    "message": "Reply message"
+  }
+}

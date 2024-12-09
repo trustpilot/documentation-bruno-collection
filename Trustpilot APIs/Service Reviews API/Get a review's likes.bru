@@ -1,0 +1,21 @@
+meta {
+  name: Get a review's likes
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/reviews/:reviewId/likes
+  body: none
+  auth: apikey
+}
+
+params:path {
+  reviewId: {{reviewId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

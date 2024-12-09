@@ -1,0 +1,21 @@
+meta {
+  name: Get profile promotion of business unit
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/business-units/:businessUnitId/profilepromotion
+  body: none
+  auth: apikey
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}
