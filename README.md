@@ -34,6 +34,8 @@ This setup uses OAuth2 grant type: client_credentials by default
 - `reviewId` - Unique identifer for a review
 - `commentId` - Unique identifer for a specfic comment
 - `sku` - Stock keeping unit (unique identifer for specific product)
+- `authorBusinessUserId` - Business User Id for the author of a review
+- `token` - Param storing token used in the revoke token endpoint
 
 ## Make API request
 
