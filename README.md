@@ -25,10 +25,9 @@ This setup uses OAuth2 grant type: client_credentials by default
 - `invitationsBaseUrl` - base URL for Trustpilot invitations API environment (default is https://invitations-api.trustpilot.com/v1)
 - `apikey` - api key for the business application
 - `apisecret` - api secret for the (above) business application
-- `domainUrl` - domain url
-
 5. Query/Path Params as environment variables (these can be configured here for ease of use as they are used frequently throughout the endpoints)
 
+- `domainUrl` - domain url
 - `consumerId` - Unique identifer for consumer
 - `conversationId` - Unique identifer for conversation
 - `reviewId` - Unique identifer for a review
