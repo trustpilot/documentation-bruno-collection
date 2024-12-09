@@ -27,7 +27,7 @@ This setup uses OAuth2 grant type: client_credentials by default
 - `apisecret` - api secret for the (above) business application
 - `domainUrl` - domain url
 
-5. Query Params as environment variables (these can be configured here for ease of use as they are used frequently throughout the endpoints)
+5. Query/Path Params as environment variables (these can be configured here for ease of use as they are used frequently throughout the endpoints)
 
 - `consumerId` - Unique identifer for consumer
 - `conversationId` - Unique identifer for conversation
