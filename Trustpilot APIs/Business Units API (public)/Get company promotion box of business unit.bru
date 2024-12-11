@@ -1,0 +1,21 @@
+meta {
+  name: Get company promotion box of business unit
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/business-units/:businessUnitId/promotion-box
+  body: none
+  auth: apikey
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

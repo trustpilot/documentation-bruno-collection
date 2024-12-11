@@ -1,0 +1,27 @@
+meta {
+  name: Create Find Reviewer request for a review
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/private/reviews/:reviewId/find-reviewer
+  body: json
+  auth: bearer
+}
+
+params:path {
+  reviewId: {{reviewId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "message": null,
+    "skipNotificationEmailToBusinessUser": false
+  }
+  
+}

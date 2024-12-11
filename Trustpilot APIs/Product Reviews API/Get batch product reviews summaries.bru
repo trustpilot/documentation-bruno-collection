@@ -1,0 +1,29 @@
+meta {
+  name: Get batch product reviews summaries
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/product-reviews/business-units/:businessUnitId/batch-summaries
+  body: json
+  auth: apikey
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}
+
+body:json {
+  {
+    "skus": [
+      "skutest123"
+    ]
+  }
+}

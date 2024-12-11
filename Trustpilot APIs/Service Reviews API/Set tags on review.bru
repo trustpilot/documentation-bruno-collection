@@ -1,0 +1,30 @@
+meta {
+  name: Set tags on review
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/private/reviews/:reviewId/tags
+  body: json
+  auth: bearer
+}
+
+params:path {
+  reviewId: {{reviewId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "tags": [
+      {
+        "group": "generic",
+        "value": "Test"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Gets domain availability
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/business-signup/domain-availability?domain={{domainUrl}}
+  body: none
+  auth: none
+}
+
+params:query {
+  domain: {{domainUrl}}
+}

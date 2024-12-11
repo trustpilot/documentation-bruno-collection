@@ -1,0 +1,21 @@
+meta {
+  name: Get the profile of the consumer(reviews+weblinks)
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/consumers/:consumerId
+  body: none
+  auth: apikey
+}
+
+params:path {
+  consumerId: {{consumerId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

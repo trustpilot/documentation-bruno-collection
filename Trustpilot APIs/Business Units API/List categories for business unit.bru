@@ -1,0 +1,26 @@
+meta {
+  name: List categories for business unit
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/business-units/:businessUnitId/categories
+  body: none
+  auth: apikey
+}
+
+params:query {
+  ~country: 
+  ~locale: 
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

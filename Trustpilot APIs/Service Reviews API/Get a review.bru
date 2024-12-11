@@ -1,0 +1,21 @@
+meta {
+  name: Get a review
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/reviews/:reviewId
+  body: none
+  auth: apikey
+}
+
+params:path {
+  reviewId: {{reviewId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}
