@@ -1,10 +1,6 @@
 # documentation-bruno-collection
 
-A Bruno collection for testing our [public APIs](https://developers.trustpilot.com), owned by the API team.
-
-Public calls are based on public information that any consumer or business can find on Trustpilot without the use of an API.
-
-Private calls are not accessible to everyone. They're only accessible to businesses with a Trustpilot business profile.
+A Bruno collection to help get up to speed with [Trustpilot API's](https://developers.trustpilot.com).
 
 ## Prerequisites
 
