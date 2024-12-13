@@ -1,0 +1,32 @@
+meta {
+  name: Get a consumer's reviews
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/consumers/:consumerId/reviews
+  body: none
+  auth: apikey
+}
+
+params:query {
+  ~stars: 
+  ~language: 
+  ~internalLocationId: 
+  ~businessUnitId: 
+  ~page: 
+  ~perPage: 
+  ~orderBy: 
+  ~includeReportedReviews: 
+}
+
+params:path {
+  consumerId: {{consumerId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}

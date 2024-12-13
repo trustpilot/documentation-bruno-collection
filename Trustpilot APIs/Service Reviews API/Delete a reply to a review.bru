@@ -1,0 +1,19 @@
+meta {
+  name: Delete a reply to a review
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/private/reviews/:reviewId/reply
+  body: none
+  auth: bearer
+}
+
+params:path {
+  reviewId: {{reviewId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}

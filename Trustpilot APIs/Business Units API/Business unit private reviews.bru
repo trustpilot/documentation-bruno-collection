@@ -1,0 +1,40 @@
+meta {
+  name: Business unit private reviews
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/private/business-units/:businessUnitId/reviews
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~orderBy: 
+  ~internalLocationId: 
+  ~page: 
+  ~language: 
+  ~stars: 
+  ~perPage: 
+  ~tagGroup: 
+  ~tagValue: 
+  ~ignoreTagValueCase: 
+  ~responded: 
+  ~referenceId: 
+  ~referralEmail: 
+  ~reported: 
+  ~startDateTime: 
+  ~endDateTime: 
+  ~source: 
+  ~username: 
+  ~findReviewer: 
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}

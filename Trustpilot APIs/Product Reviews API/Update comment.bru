@@ -1,0 +1,27 @@
+meta {
+  name: Update comment
+  type: http
+  seq: 17
+}
+
+put {
+  url: {{baseUrl}}/private/conversations/:conversationId/comments/:commentId
+  body: json
+  auth: bearer
+}
+
+params:path {
+  commentId: {{commentId}}
+  conversationId: {{conversationId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "content": "Thank you for you kind words, we really appreciate it. This comment was updated",
+    "integrationId": "IB2478HFAJKN38"
+  }
+}

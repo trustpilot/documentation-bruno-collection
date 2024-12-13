@@ -1,0 +1,24 @@
+meta {
+  name: Remove a tag from a review
+  type: http
+  seq: 10
+}
+
+delete {
+  url: {{baseUrl}}/private/reviews/:reviewId/tags?group=ProductGroup&value=ComputersTest
+  body: none
+  auth: bearer
+}
+
+params:query {
+  group: ProductGroup
+  value: ComputersTest
+}
+
+params:path {
+  reviewId: {{reviewId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Get products
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/private/business-units/:businessUnitId/products
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~page: 
+  ~perPage: 
+  ~skus: 
+  ~groupId: 
+  ~locale: 
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:bearer {
+  token: {{token}}
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Refresh Token
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/oauth/oauth-business-users-for-applications/refresh
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{apikey}}
+  password: {{apisecret}}
+}
+
+body:form-urlencoded {
+  grant_type: refresh_token
+  refresh_token: {{refreshToken}}
+}

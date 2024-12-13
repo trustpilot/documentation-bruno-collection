@@ -1,0 +1,15 @@
+meta {
+  name: Get the star image resources
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/resources/images/stars/:stars
+  body: none
+  auth: none
+}
+
+params:path {
+  stars: 5
+}

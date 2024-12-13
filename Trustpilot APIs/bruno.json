@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "developers.trustpilot.com",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

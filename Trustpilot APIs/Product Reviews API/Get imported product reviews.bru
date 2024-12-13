@@ -1,0 +1,29 @@
+meta {
+  name: Get imported product reviews
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/product-reviews/business-units/:businessUnitId/imported-reviews?sku={{sku}}
+  body: none
+  auth: apikey
+}
+
+params:query {
+  sku: {{sku}}
+  ~page: 
+  ~perPage: 
+  ~stars: 
+  ~language: 
+}
+
+params:path {
+  businessUnitId: {{businessUnitId}}
+}
+
+auth:apikey {
+  key: apikey
+  value: {{apikey}}
+  placement: header
+}
